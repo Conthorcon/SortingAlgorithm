@@ -380,16 +380,6 @@ void CommandLine3(string algorithm,int input_size,string output_parameter)
     if(checksorted)
         OutputParameter(output_parameter,rtime,ccmp);
 
-    char o1[] = "output_1.txt";
-    char o2[] = "output_2.txt";
-    char o3[] = "output_3.txt";
-    char o4[] = "output_4.txt";
-
-    WriteFile(o1,arr_rand,is);
-    WriteFile(o2,arr_nsort,is);
-    WriteFile(o3,arr_sort,is);
-    WriteFile(o4,arr_rev,is);
-
     delete[] arr_rand;
     delete[] arr_nsort;
     delete[] arr_sort;
