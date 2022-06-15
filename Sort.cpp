@@ -243,7 +243,7 @@ void Swap(int &a,int &b)
 }
 void InsertionSort(int a[],int n,long long &ccmp)
 {
-    for (int i = 1; i < n && ++ccmp ; i++)
+    for (int i = 1; i < n & ++ccmp ; i++)
 	{
 		int k = i - 1;
 		int key = a[i];
