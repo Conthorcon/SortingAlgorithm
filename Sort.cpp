@@ -257,13 +257,13 @@ void InsertionSort(int a[],int n,long long &ccmp)
 }
 void ShellSortC(int a[],int n,long long &ccmp)
 {
-    for (int interval = n / 2; interval > 0 && ++ccmp; interval /= 2)
+    for (int interval = n / 2; interval > 0 & ++ccmp; interval /= 2)
 	{
-		for (int i = interval; i < n && ++ccmp; i++)
+		for (int i = interval; i < n & ++ccmp; i++)
 		{
 			int temp = a[i];
 			int j = i;
-			for (j = i; j >= interval && a[j - interval] > temp && ++ccmp && ++ccmp; j -= interval)
+			for (j = i; j >= interval & a[j - interval] > temp & ++ccmp & ++ccmp; j -= interval)
 			{
 				a[j] = a[j - interval];
 			}	
@@ -274,38 +274,38 @@ void ShellSortC(int a[],int n,long long &ccmp)
 void CountingSortC(int a[],int n,long long &ccmp)
 {
     int max = a[0];
-	for (int i = 1; i < n && ++ccmp; i++)
+	for (int i = 1; i < n & ++ccmp; i++)
 	{
-		if (a[i] > max && ++ccmp)
+		if (a[i] > max & ++ccmp)
 		{
 			max = a[i];
 		}
 	}
 
 	int *count = new int[max + 1];
-	for (int i = 0; i <= max && ++ccmp; i++)
+	for (int i = 0; i <= max & ++ccmp; i++)
 	{
 		count[i] = 0;
 	}
 
-	for (int i = 0; i < n && ++ccmp; i++)
+	for (int i = 0; i < n & ++ccmp; i++)
 	{
 		count[a[i]]++;
 	}
 
-	for (int i = 1; i <= max && ++ccmp; i++)
+	for (int i = 1; i <= max & ++ccmp; i++)
 	{
 		count[i] += count[i - 1];
 	}
 
 	int *temp = new int[n];
-	for (int i = 0; i < n && ++ccmp; i++)
+	for (int i = 0; i < n & ++ccmp; i++)
 	{
 		temp[count[a[i]] - 1] = a[i];
 		count[a[i]]--;
 	}
 
-	for (int i = 0; i < n&& ++ccmp; i++)
+	for (int i = 0; i < n & ++ccmp; i++)
 	{
 		a[i] = temp[i];
 	}
@@ -319,35 +319,35 @@ void FlashSortC(int a[],int n,long long &ccmp)
 	int max = 0;
 	int m = int(0.45 * n);
 	int* l = new int[m];
-	for (int i = 0; i < m && ++ccmp; i++)
+	for (int i = 0; i < m & ++ccmp; i++)
 	{
 		l[i] = 0;
 	}
 
-	for (int i = 1; i < n && ++ccmp; i++)
+	for (int i = 1; i < n & ++ccmp; i++)
 	{
-		if (a[i] < minVal && ++ccmp)
+		if (a[i] < minVal & ++ccmp)
 		{
 			minVal = a[i];
 		}
-		if (a[i] > a[max] && ++ccmp)
+		if (a[i] > a[max] & ++ccmp)
 		{
 			max = i;
 		}
 	}
-	if (a[max] == minVal && ++ccmp)
+	if (a[max] == minVal & ++ccmp)
 	{
 		return;
 	}
 	
 	double c1 = (double)(m - 1) / (a[max] - minVal);
-	for (int i = 0; i < n && ++ccmp; i++)
+	for (int i = 0; i < n & ++ccmp; i++)
 	{
 		int k = int(c1 * (a[i] - minVal));
 		++l[k];
 	}
 
-	for (int i = 1; i < m && ++ccmp; i++)
+	for (int i = 1; i < m & ++ccmp; i++)
 	{
 		l[i] += l[i - 1];
 	}
@@ -359,21 +359,21 @@ void FlashSortC(int a[],int n,long long &ccmp)
 	int t = 0;
 	int flash;
 	
-	while (nmove < n - 1 && ++ccmp)
+	while (nmove < n - 1 & ++ccmp)
 	{
-		while (j > l[k] - 1 && ++ccmp)
+		while (j > l[k] - 1 & ++ccmp)
 		{
 			j++;
 			k = int(c1*(a[j] - minVal));
 		}
 
 		flash = a[j];
-		if (k < 0 && ++ccmp) 
+		if (k < 0 & ++ccmp) 
 		{
 			break;
 		}
 
-		while (j != l[k] && ++ccmp)
+		while (j != l[k] & ++ccmp)
 		{
 			k = int(c1*(flash - minVal));
 			int hold = a[t = --l[k]];
